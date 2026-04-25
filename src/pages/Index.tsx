@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import {
   WaitlistWrapper,
@@ -5,6 +6,7 @@ import {
 } from "@/components/waitlist";
 
 const Index = () => {
+  const navigate = useNavigate();
   return (
     <ThemeProvider
       attribute="class"
@@ -48,7 +50,7 @@ const Index = () => {
                 <div className="px-1 flex flex-col w-full self-stretch">
                   <button
                     className="w-full h-11 bg-gray-12 text-gray-1 text-sm rounded-full font-medium hover:opacity-90 transition-opacity"
-                    onClick={() => {}}
+                    onClick={() => navigate("/exam")}
                   >
                     Сдача экзамена
                   </button>
