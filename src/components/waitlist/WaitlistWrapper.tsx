@@ -20,7 +20,7 @@ export function WaitlistWrapper({
   children,
   logo,
   copyright = "При поддержке",
-  copyrightLink = { text: "Ваша компания", href: "#" },
+  copyrightLink = { text: "отдел FLETC", href: "#" },
   showThemeSwitcher = true,
   hideCopyright = false,
 }: WaitlistWrapperProps) {
