@@ -85,7 +85,10 @@ const Exam = () => {
             </div>
           ) : (
             <div className="flex flex-col gap-6">
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 flex flex-col gap-2">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-white/20 border border-white/30">
+                  <Icon name="BookOpenCheck" size={26} className="text-slate-12" />
+                </div>
                 <h1 className="text-2xl font-medium text-slate-12">Экзамен по уставу USSS</h1>
                 <p className="text-slate-10 text-sm">Отдел FLETC · Government</p>
               </div>
