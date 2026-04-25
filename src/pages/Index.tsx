@@ -1,22 +1,10 @@
 import { ThemeProvider } from "next-themes";
 import {
-  WaitlistForm,
   WaitlistWrapper,
   MeshGradient,
 } from "@/components/waitlist";
 
 const Index = () => {
-  const handleSubmit = async (
-    email: string
-  ): Promise<{ success: boolean; error?: string }> => {
-    // Simulate API call
-    console.log("Submitting email:", email);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Demo: always succeed
-    return { success: true };
-  };
-
   return (
     <ThemeProvider
       attribute="class"
@@ -45,7 +33,7 @@ const Index = () => {
                   alt: "Launchpad",
                 }}
                 copyright="При поддержке"
-                copyrightLink={{ text: "Ваша компания", href: "#" }}
+                copyrightLink={{ text: "отдел FLETC", href: "#" }}
                 showThemeSwitcher={true}
               >
                 <div className="space-y-1">
@@ -58,15 +46,12 @@ const Index = () => {
                   </p>
                 </div>
                 <div className="px-1 flex flex-col w-full self-stretch">
-                  <WaitlistForm
-                    onSubmit={handleSubmit}
-                    placeholder="Введите email"
-                    buttonCopy={{
-                      idle: "Записаться",
-                      loading: "Отправка...",
-                      success: "Готово!",
-                    }}
-                  />
+                  <button
+                    className="w-full h-11 bg-gray-12 text-gray-1 text-sm rounded-full font-medium hover:opacity-90 transition-opacity"
+                    onClick={() => {}}
+                  >
+                    Сдача экзамена
+                  </button>
                 </div>
               </WaitlistWrapper>
             </main>
