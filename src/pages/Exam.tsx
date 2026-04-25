@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { MeshGradient } from "@/components/waitlist";
+import Icon from "@/components/ui/icon";
 
 const questions = [
   "Что такое USSS согласно закону?",
@@ -16,6 +18,7 @@ const questions = [
 ];
 
 const Exam = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [answers, setAnswers] = useState<string[]>(Array(questions.length).fill(""));
   const [submitted, setSubmitted] = useState(false);
@@ -65,6 +68,13 @@ const Exam = () => {
           style={{ position: "fixed", top: 0, left: 0, zIndex: 0, width: "100%", height: "100%" }}
         />
         <div className="relative z-[1] max-w-2xl mx-auto px-5 py-12">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-1.5 text-sm text-slate-10 hover:text-slate-12 transition-colors mb-6"
+          >
+            <Icon name="ArrowLeft" size={16} />
+            На главную
+          </button>
           {submitted ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh] text-center gap-4">
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-10 flex flex-col items-center gap-4">
