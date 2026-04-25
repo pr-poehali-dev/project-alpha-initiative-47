@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "Get exam submissions list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"submissions": []},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

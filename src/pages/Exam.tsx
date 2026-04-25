@@ -40,9 +40,21 @@ const Exam = () => {
     }
     setError("");
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch("https://functions.poehali.dev/68a32a40-9029-434a-8d03-a6c3fcb1d116", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ full_name: name, answers }),
+      });
+      const raw = await res.text();
+      const data = JSON.parse(typeof JSON.parse(raw) === "string" ? JSON.parse(raw) : raw);
+      if (!res.ok || !data.success) throw new Error(data.error || "Ошибка");
+      setSubmitted(true);
+    } catch {
+      setError("Не удалось отправить ответы. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
